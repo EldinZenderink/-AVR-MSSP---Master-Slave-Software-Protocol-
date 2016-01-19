@@ -22,11 +22,14 @@ This is a list with functions available to you:
 
     (void)    ISRMSSP()                                                     //FUNCTION THAT NEEDS TO BE PUT IN ISR()
     (void)    initMSSP(syncPin, receivePin, transmitPin, localClockSpeed)
-    (void)    isMaster()
-    (void)    isSlave()
+    (void)    setMaster()
+    (void)    setSlave()
     (void)    sendByte(byte)
     (uint8_t) getByte()
     (void)    stopMSSP()
+    
+    (uint8_t) isSlave                                                       // this is just a uint8_t value acting as a bool
+    (uint8_t) isMaster                                                      // this is just a uint8_t value acting as a bool
 
 
 Before you start main, you should add in your main file:
@@ -57,10 +60,10 @@ An example would be (without serial communication):
         initMSSP(PINC2, PINC0, PINC1, 82);
         
         //If you want to be a Slave:
-        isSlave(); 
+        setSlave(); 
         
         //If you want to be a Master
-        isMaster();
+        setMaster();
         
         //infite while loop where your program runs
         while(1)
