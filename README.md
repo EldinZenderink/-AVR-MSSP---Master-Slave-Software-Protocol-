@@ -84,6 +84,10 @@ An example would be (without serial communication):
 
 Very simple: This protocol is a semi local timed/sync protocol, it sends a full byte on its local clock/timing before sending/receiving a sync pulse to sync the both local clocks again. Why doing it like this? Well, It might be just me, but I couldn't get a clock signal over the sync pin to work, so I went with the next best thing. I fully know that this is not reliable in any way and is also very inefficient. I might try to do it with a sync signal to control the slave clock speed but as it is now, it somewhat works.
 
+### Timing Diagram
+
+![Timing Diagram MSSP](http://oi64.tinypic.com/wvtp8p.jpg)
+
 ### Development
 This protocol was developed and used in a project for college. We needed to create a game and one of our features was Multiplayer with 2 screens (both arduino's had a screen and a nunchuck through I2C) [Link to a video demonstrating this protocol in combination with our "game".](https://www.youtube.com/watch?v=qZhvvHVLEhM) Keep in mind that this was an older version. We couldn't use I2C to communicate between the two arduinos and SPI was also out of the question. We tried, software I2C, SPI and usart but couldn't get it to work properly with our pin setup. So I started development of this protocol. This protocol was developed with the idea: "If I can somewhat send and receive data and use this data, its fine.", so in that perspective, It wasn't developed with perfomance or even high reliability in mind.
 
